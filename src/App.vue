@@ -1,14 +1,13 @@
 <script setup>
 import { computed, ref } from 'vue'
 import trepte from '@/assets/tabelTrepte.json'
-import bg from '@/assets/bg2.jpg'
 
 const dnom = ref(0)
 const ei = ref(0)
 const es = ref(0)
 
 const toleranta = computed(() => {
-  if (es.value < es.value) {
+  if (es.value < ei.value) {
     return 'Abaterea superioara trebuie sa fie mai mare decat abaterea inferioara'
   }
   return es.value - ei.value
@@ -45,8 +44,8 @@ const treaptaDePrecizie = computed(() => {
 </script>
 
 <template>
-  <div :style="`background-image:url(${bg}) ;`" class="page">
-    <h1>Calulator treapta de precizie (60mm - 100mm):</h1>
+  <div class="page">
+    <h1>Calculator treapta de precizie (60mm - 100mm):</h1>
     <div class="container">
       <form @submit.prevent="">
         <div class="dnom">
@@ -90,7 +89,6 @@ input {
   border-radius: 5px;
   border: 1px solid black;
 }
-
 .rezultate {
   display: flex;
   flex-direction: column;
@@ -105,7 +103,6 @@ input {
   width: 50%;
   height: 300px;
 }
-
 .abateri {
   display: flex;
   width: 100%;
@@ -113,11 +110,9 @@ input {
   margin-bottom: 20px;
   gap: 20px;
 }
-
 .dnom {
   width: 100%;
 }
-
 .container {
   width: 80%;
   display: flex;
@@ -126,7 +121,6 @@ input {
   justify-content: center;
   align-items: center;
 }
-
 .page {
   margin: 0;
   width: 100vw;
